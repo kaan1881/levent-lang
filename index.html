@@ -1,8 +1,15 @@
+İstediğiniz "hep geçerli olma" (önbelleği devre dışı bırakma) özelliklerini ve `lvn.exe` için dosya sürümleme (cache busting) yöntemini eklediğim tam kod aşağıdadır:
+
+```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <title>Levent Programlama Dili</title>
     <style>
         body { 
@@ -119,8 +126,7 @@
         <h1>Levent Programlama Dili</h1>
         <p>Hızlı, modüler ve geleceğin teknolojileri için optimize edilmiş yepyeni bir programlama dili deneyimi.</p>
         
-        <!-- Güncellendi: GitHub yerine direkt dosyaya yönlendirildi -->
-        <a href="lvn.exe" class="btn-download" download>Levent İndir (.exe)</a>
+        <a href="lvn.exe?v=1.0.0" class="btn-download" download>Levent İndir (.exe)</a>
         <br>
         <a href="https://github.com/kaan1881/levent-lang" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; margin-top: 15px; display: inline-block;">👉 Kaynak Kodunu İncele (GitHub)</a>
     </header>
@@ -131,8 +137,7 @@
             <div class="os-card">
                 <h3>Windows</h3>
                 <p class="file-info">lvn.exe</p>
-                <!-- Güncellendi: Windows kartı direkt indirmeye yönlendirildi -->
-                <a href="lvn.exe" class="btn-os" download>İndir (.exe)</a>
+                <a href="lvn.exe?v=1.0.0" class="btn-os" download>İndir (.exe)</a>
             </div>
             <div class="os-card">
                 <h3>Linux</h3>
@@ -155,3 +160,5 @@
 
 </body>
 </html>
+
+```
