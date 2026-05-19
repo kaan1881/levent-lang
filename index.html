@@ -1,164 +1,90 @@
-İstediğiniz "hep geçerli olma" (önbelleği devre dışı bırakma) özelliklerini ve `lvn.exe` için dosya sürümleme (cache busting) yöntemini eklediğim tam kod aşağıdadır:
-
-```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    
-    <title>Levent Programlama Dili</title>
+    <title>Levent | Modern ve Hızlı Programlama Dili</title>
+    <!-- Profesyonel ikonlar için FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #0f172a; 
-            color: #f8fafc; 
-            margin: 0; 
-            padding: 0; 
-            text-align: center; 
-        }
-        header { 
-            padding: 80px 20px; 
-            background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%); 
-        }
-        h1 { 
-            font-size: 3.5rem; 
-            margin: 0; 
-            color: #38bdf8; 
-        }
-        p { 
-            font-size: 1.2rem; 
-            color: #94a3b8; 
-            max-width: 600px; 
-            margin: 20px auto; 
-        }
-        .btn-download { 
-            display: inline-block; 
-            background-color: #38bdf8; 
-            color: #0f172a; 
-            padding: 15px 40px; 
-            font-weight: bold; 
-            font-size: 1.1rem; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            margin-top: 20px; 
-            box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4); 
-            transition: 0.3s; 
-        }
-        .btn-download:hover { 
-            transform: translateY(-3px); 
-            background-color: #7dd3fc; 
-        }
-        .download-selection {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-        .download-selection h2 {
-            color: #38bdf8;
-            margin-bottom: 30px;
-            font-size: 2rem;
-        }
-        .os-cards {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .os-card {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 25px;
-            width: 220px;
-            transition: 0.3s;
-        }
-        .os-card:hover {
-            transform: translateY(-5px);
-            border-color: #38bdf8;
-        }
-        .os-card h3 {
-            margin: 0 0 10px 0;
-            color: #f8fafc;
-        }
-        .file-info {
-            font-size: 0.85rem !important;
-            color: #64748b !important;
-            margin: 10px 0 20px 0 !important;
-            font-family: monospace;
-        }
-        .btn-os {
-            display: block;
-            background-color: transparent;
-            color: #38bdf8;
-            border: 2px solid #38bdf8;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: 0.2s;
-        }
-        .btn-os:hover {
-            background-color: #38bdf8;
-            color: #0f172a;
-        }
-        .code-box { 
-            background-color: #020617; 
-            border: 1px solid #334155; 
-            border-radius: 8px; 
-            padding: 20px; 
-            max-width: 500px; 
-            margin: 60px auto; 
-            text-align: left; 
-            font-family: 'Courier New', Courier, monospace; 
-            color: #34d399; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-        }
+        :root { --primary: #38bdf8; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; line-height: 1.6; }
+        
+        .hero { padding: 80px 20px; text-align: center; background: radial-gradient(circle at top, #1e1b4b, #0f172a); }
+        h1 { font-size: 3.5rem; margin-bottom: 10px; color: var(--primary); }
+        .hero p { font-size: 1.25rem; color: #94a3b8; max-width: 700px; margin: 0 auto 30px; }
+        
+        section { max-width: 1000px; margin: 50px auto; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: var(--card); padding: 30px; border-radius: 16px; border: 1px solid #334155; transition: 0.3s; }
+        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        
+        .code-box { background: #020617; padding: 25px; border-radius: 12px; font-family: 'Courier New', monospace; border-left: 5px solid var(--primary); color: #34d399; margin: 20px 0; overflow-x: auto; }
+        
+        .btn { display: inline-block; padding: 15px 35px; border-radius: 8px; font-weight: bold; text-decoration: none; transition: 0.3s; }
+        .btn-primary { background: var(--primary); color: var(--bg); }
+        .btn-primary:hover { opacity: 0.9; transform: scale(1.05); }
+        
+        footer { text-align: center; padding: 40px; border-top: 1px solid #334155; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Levent Programlama Dili</h1>
-        <p>Hızlı, modüler ve geleceğin teknolojileri için optimize edilmiş yepyeni bir programlama dili deneyimi.</p>
-        
-        <a href="lvn.exe?v=1.0.0" class="btn-download" download>Levent İndir (.exe)</a>
-        <br>
-        <a href="https://github.com/kaan1881/levent-lang" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; margin-top: 15px; display: inline-block;">👉 Kaynak Kodunu İncele (GitHub)</a>
-    </header>
+<header class="hero">
+    <h1>Levent Lang</h1>
+    <p>Performans odaklı, öğrenmesi kolay ve modüler yapısıyla geliştiriciler için yeniden tasarlandı.</p>
+    <!-- Windows için doğrudan indirme linki -->
+    <a href="https://github.com/kaan1881/levent-lang/raw/main/lvn.exe" class="btn btn-primary" download><i class="fas fa-download"></i> Hemen İndir (Windows)</a>
+</header>
 
-    <div class="download-selection">
-        <h2>Sisteminize Uygun Sürümü Seçin</h2>
-        <div class="os-cards">
-            <div class="os-card">
-                <h3>Windows</h3>
-                <p class="file-info">lvn.exe</p>
-                <a href="lvn.exe?v=1.0.0" class="btn-os" download>İndir (.exe)</a>
-            </div>
-            <div class="os-card">
-                <h3>Linux</h3>
-                <p class="file-info">levent-v1.0.0-linux.tar.gz</p>
-                <a href="https://github.com/kaan1881/levent-lang/releases/download/v1.0.0/levent-v1.0.0-linux.tar.gz" class="btn-os">İndir (.tar.gz)</a>
-            </div>
-            <div class="os-card">
-                <h3>macOS</h3>
-                <p class="file-info">levent-v1.0.0-macos.tar.gz</p>
-                <a href="https://github.com/kaan1881/levent-lang/releases/download/v1.0.0/levent-v1.0.0-macos.tar.gz" class="btn-os">İndir (.pkg)</a>
-            </div>
+<section>
+    <h2>Neden Levent'i Seçmelisin?</h2>
+    <div class="grid">
+        <div class="card">
+            <h3><i class="fas fa-bolt"></i> Ultra Hızlı</h3>
+            <p>Düşük seviyeli bellek yönetimi sayesinde modern işlemcilerde maksimum performans sunar.</p>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-box-open"></i> Modüler Yapı</h3>
+            <p>Küçük paketler halinde dağıtılan kütüphaneler ile gereksiz yüklerden kurtulun.</p>
+        </div>
+        <div class="card">
+            <h3><i class="fas fa-code"></i> Geliştirici Dostu</h3>
+            <p>Söz dizimi temiz ve okunabilirlik üzerine inşa edilmiştir. Hataları anında yakalayın.</p>
         </div>
     </div>
+</section>
 
+<section>
+    <h2>Başlangıç Rehberi</h2>
     <div class="code-box">
-        <span style="color: #f43f5e;">fonksiyon</span> ana() {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;yazdir(<span style="color: #e2e8f0;">"Merhaba Dünya!"</span>);<br>
+        // Levent ile ilk programınız<br>
+        fonksiyon ana() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;yazdir("Levent Dünyasına Hoş Geldiniz!");<br>
         }
     </div>
+</section>
+
+<section>
+    <h2>İndirme Seçenekleri</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Windows</h3>
+            <p>lvn.exe</p>
+            <a href="https://github.com/kaan1881/levent-lang/raw/main/lvn.exe" class="btn btn-primary" download>İndir (.exe)</a>
+        </div>
+        <div class="card">
+            <h3>Linux / macOS</h3>
+            <p>Kaynak koddan derleme</p>
+            <a href="https://github.com/kaan1881/levent-lang" class="btn btn-primary">GitHub'a Git</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Levent Programming Language Project</p>
+    <p>Açık kaynaklı ve topluluk tarafından geliştirilmiştir.</p>
+</footer>
 
 </body>
 </html>
-
-```
