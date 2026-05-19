@@ -45,13 +45,67 @@
             transform: translateY(-3px); 
             background-color: #7dd3fc; 
         }
+        .download-selection {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .download-selection h2 {
+            color: #38bdf8;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        .os-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .os-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 25px;
+            width: 220px;
+            transition: 0.3s;
+        }
+        .os-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+        .os-card h3 {
+            margin: 0 0 10px 0;
+            color: #f8fafc;
+        }
+        .file-info {
+            font-size: 0.85rem !important;
+            color: #64748b !important;
+            margin: 10px 0 20px 0 !important;
+            font-family: monospace;
+        }
+        .btn-os {
+            display: block;
+            background-color: transparent;
+            color: #38bdf8;
+            border: 2px solid #38bdf8;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .btn-os:hover {
+            background-color: #38bdf8;
+            color: #0f172a;
+        }
         .code-box { 
             background-color: #020617; 
             border: 1px solid #334155; 
             border-radius: 8px; 
             padding: 20px; 
             max-width: 500px; 
-            margin: 40px auto; 
+            margin: 60px auto; 
             text-align: left; 
             font-family: 'Courier New', Courier, monospace; 
             color: #34d399; 
@@ -65,8 +119,31 @@
         <h1>Levent Programlama Dili</h1>
         <p>Hızlı, modüler ve geleceğin teknolojileri için optimize edilmiş yepyeni bir programlama dili deneyimi.</p>
         
-        <a href="https://github.com/kaan1881/levent-lang" class="btn-download">Proje Kodlarını İncele</a>
+        <a href="https://github.com/kaan1881/levent-lang/releases/latest" class="btn-download">Levent v1.0.0 İndir</a>
+        <br>
+        <a href="https://github.com/kaan1881/levent-lang" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; margin-top: 15px; display: inline-block;">👉 Kaynak Kodunu İncele (GitHub)</a>
     </header>
+
+    <div class="download-selection">
+        <h2>Sisteminize Uygun Sürümü Seçin</h2>
+        <div class="os-cards">
+            <div class="os-card">
+                <h3>Windows</h3>
+                <p class="file-info">levent-v1.0.0-win64.zip</p>
+                <a href="https://github.com/kaan1881/levent-lang/releases/download/v1.0.0/levent-v1.0.0-win64.zip" class="btn-os">İndir (.exe)</a>
+            </div>
+            <div class="os-card">
+                <h3>Linux</h3>
+                <p class="file-info">levent-v1.0.0-linux.tar.gz</p>
+                <a href="https://github.com/kaan1881/levent-lang/releases/download/v1.0.0/levent-v1.0.0-linux.tar.gz" class="btn-os">İndir (.tar.gz)</a>
+            </div>
+            <div class="os-card">
+                <h3>macOS</h3>
+                <p class="file-info">levent-v1.0.0-macos.tar.gz</p>
+                <a href="https://github.com/kaan1881/levent-lang/releases/download/v1.0.0/levent-v1.0.0-macos.tar.gz" class="btn-os">İndir (.pkg)</a>
+            </div>
+        </div>
+    </div>
 
     <div class="code-box">
         <span style="color: #f43f5e;">fonksiyon</span> ana() {<br>
