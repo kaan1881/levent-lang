@@ -6,25 +6,16 @@
     <title>Levent | Modern ve Hızlı Programlama Dili</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #38bdf8; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; }
+        :root { --primary: #38bdf8; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; --accent: #f97316; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; line-height: 1.6; }
         
         .hero { padding: 80px 20px; text-align: center; background: radial-gradient(circle at top, #1e1b4b, #0f172a); }
         h1 { font-size: 3.5rem; margin-bottom: 10px; color: var(--primary); }
         .hero p { font-size: 1.25rem; color: #94a3b8; max-width: 700px; margin: 0 auto 30px; }
         
-        section { max-width: 1000px; margin: 50px auto; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: var(--card); padding: 30px; border-radius: 16px; border: 1px solid #334155; transition: 0.3s; }
-        .card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        
-        .code-box { background: #020617; padding: 25px; border-radius: 12px; font-family: 'Courier New', monospace; border-left: 5px solid var(--primary); color: #34d399; margin: 20px 0; overflow-x: auto; }
-        
-        .btn { display: inline-block; padding: 15px 35px; border-radius: 8px; font-weight: bold; text-decoration: none; transition: 0.3s; cursor: pointer; }
-        .btn-primary { background: var(--primary); color: #0f172a; }
-        .btn-primary:hover { opacity: 0.9; transform: scale(1.05); }
-        
-        footer { text-align: center; padding: 40px; border-top: 1px solid #334155; color: #64748b; font-size: 0.9rem; }
+        .btn { display: inline-block; padding: 18px 40px; border-radius: 8px; font-weight: bold; text-decoration: none; transition: 0.3s; cursor: pointer; color: white; }
+        .btn-accent { background: var(--accent); }
+        .btn-accent:hover { background: #ea580c; transform: scale(1.05); }
     </style>
 </head>
 <body>
@@ -34,34 +25,12 @@
     <p>Performans odaklı, öğrenmesi kolay ve modüler yapısıyla geliştiriciler için yeniden tasarlandı.</p>
     
     <a href="https://github.com/kaan1881/levent-lang/raw/main/lvn/lvn.exe" 
-       class="btn btn-primary" 
+       class="btn btn-accent" 
        target="_blank" 
-       onclick="window.location.href='kurulum.html'">
+       onclick="setTimeout(function(){ window.location.href='kurulum.html'; }, 1000);">
        <i class="fas fa-download"></i> İndir ve Kurulumu Başlat
     </a>
 </header>
-
-<section>
-    <h2>Neden Levent'i Seçmelisin?</h2>
-    <div class="grid">
-        <div class="card">
-            <h3><i class="fas fa-bolt"></i> Ultra Hızlı</h3>
-            <p>Düşük seviyeli bellek yönetimi sayesinde modern işlemcilerde maksimum performans sunar.</p>
-        </div>
-        <div class="card">
-            <h3><i class="fas fa-box-open"></i> Modüler Yapı</h3>
-            <p>Küçük paketler halinde dağıtılan kütüphaneler ile gereksiz yüklerden kurtulun.</p>
-        </div>
-        <div class="card">
-            <h3><i class="fas fa-code"></i> Geliştirici Dostu</h3>
-            <p>Söz dizimi temiz ve okunabilirlik üzerine inşa edilmiştir.</p>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <p>&copy; 2026 Levent Programming Language Project</p>
-</footer>
 
 </body>
 </html>
