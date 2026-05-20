@@ -6,7 +6,7 @@
     <title>Levent | Modern ve Hızlı Programlama Dili</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #38bdf8; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; --accent: #f97316; }
+        :root { --primary: #38bdf8; --bg: #0f172a; --card: #1e293b; --text: #f8fafc; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; line-height: 1.6; }
         
         .hero { padding: 80px 20px; text-align: center; background: radial-gradient(circle at top, #1e1b4b, #0f172a); }
@@ -24,9 +24,6 @@
         .btn-primary { background: var(--primary); color: #0f172a; }
         .btn-primary:hover { opacity: 0.9; transform: scale(1.05); }
         
-        .btn-accent { background: var(--accent); color: white; }
-        .btn-accent:hover { background: #ea580c; transform: scale(1.05); }
-
         footer { text-align: center; padding: 40px; border-top: 1px solid #334155; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
@@ -35,7 +32,13 @@
 <header class="hero">
     <h1>Levent Lang</h1>
     <p>Performans odaklı, öğrenmesi kolay ve modüler yapısıyla geliştiriciler için yeniden tasarlandı.</p>
-    <a href="https://github.com/kaan1881/levent-lang/raw/main/lvn/lvn.exe" class="btn btn-accent" target="_blank"><i class="fas fa-download"></i> Hemen İndir (Windows)</a>
+    
+    <a href="https://github.com/kaan1881/levent-lang/raw/main/lvn/lvn.exe" 
+       class="btn btn-primary" 
+       target="_blank" 
+       onclick="window.location.href='kurulum.html'">
+       <i class="fas fa-download"></i> İndir ve Kurulumu Başlat
+    </a>
 </header>
 
 <section>
@@ -51,46 +54,13 @@
         </div>
         <div class="card">
             <h3><i class="fas fa-code"></i> Geliştirici Dostu</h3>
-            <p>Söz dizimi temiz ve okunabilirlik üzerine inşa edilmiştir. Hataları anında yakalayın.</p>
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2>Levent Hakkında</h2>
-    <div class="card">
-        <p>Levent, modern yazılım geliştirme süreçlerini hızlandırmak ve bellek güvenliğini en üst düzeye çıkarmak amacıyla tasarlandı. Geleneksel dillerin karmaşıklığını geride bırakıp, modüler bir mimari ile geliştiricilere esneklik sunuyoruz.</p>
-    </div>
-</section>
-
-<section>
-    <h2>Başlangıç Rehberi</h2>
-    <div class="code-box">
-        // Levent ile ilk programınız<br>
-        fonksiyon ana() {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;yazdir("Levent Dünyasına Hoş Geldiniz!");<br>
-        }
-    </div>
-</section>
-
-<section>
-    <h2>Dokümantasyon</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Hızlı Başlangıç</h3>
-            <p>Levent'i sisteminize kurun ve ilk kodunuzu 5 dakikada yazın.</p>
-        </div>
-        <div class="card">
-            <h3>İndirme Seçenekleri</h3>
-            <p>Windows, Linux ve macOS sürümleri için github deposunu kontrol edin.</p>
-            <a href="https://github.com/kaan1881/levent-lang" class="btn btn-primary" style="margin-top:10px;">GitHub'a Git</a>
+            <p>Söz dizimi temiz ve okunabilirlik üzerine inşa edilmiştir.</p>
         </div>
     </div>
 </section>
 
 <footer>
     <p>&copy; 2026 Levent Programming Language Project</p>
-    <p>Açık kaynaklı ve topluluk tarafından geliştirilmiştir.</p>
 </footer>
 
 </body>
